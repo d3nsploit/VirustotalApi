@@ -91,10 +91,11 @@ headers = {
 
 f = open("demofile.txt", "r")
 for indicator in f:
+    indicator=indicator.strip()
     if indicator.startswith('http://') or indicator.startswith('https://'):
         check_url(indicator,headers)
     else:
-        try:  
+        try:
             ip_obj = ipaddress.ip_address(indicator)  
             check_ip(indicator,headers) 
         except:  
